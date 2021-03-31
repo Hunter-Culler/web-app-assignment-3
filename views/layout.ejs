@@ -4,28 +4,40 @@
         <title>Social Media Webiste</title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
             integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-            <link rel="stylesheet" href="public/assignment1.css">
+        <!--<link rel="stylesheet" href="public/assignment1.css">-->
     </head>
 
-    <body>
-        <nav class="navbar navbar-custom">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <a class="navbar-brand" href="#">Social Media Site</a>
-                </div>
-                <ul class="nav navbar-nav">
-                    <li class="active"><a href="#" style="color:white">Home</a></li>
-                    <li class="active"><a href="#" style="color:white">Messages</a></li>
-                    <li class="active"><a href="#" style="color:white">Profile</a></li>
-                    <li class="active"><a href="#" style="color:white">Friends</a></li>
-                </ul>
+    <body class="d-flex flex-column min-vh-100">
+        <div id="nav">
+            <div class="col-sm nav-align">
+                <h1>Social Media Website</h1>
             </div>
-        </nav>
+            <div class="col-sm nav-align">
+                <a href="/">
+                    <span class="button">Home</span>
+                </a>
+                <a href="/messages">
+                    <span class="button">Messages</span>
+                </a>
+                <a href="/friends">
+                    <span class="button">Friends</span>
+                </a>
+                <a href="/profile">
+                    <span class="button">Profile</span>
+                </a>
+            </div>
+        </div>
         <%- body %>
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" 
             integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" 
             integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
         <script src="script.js"></script>
+        <footer class="mt-auto">
+            <p><a href="#" class="text-primary">Contact Us</a></p>
+			<p><a href="#" class="text-primary">Another link</a></p>
+			<p><a href="#" class="text-primary">One More link</a></p>
+			Copyright @2021 Ian Anderson and Hunter Culler
+        </footer>
     </body>
 </html>

@@ -1,38 +1,37 @@
-<header>
-    <h2>Sign in</h2>
-</header>
-
-<section>
-    <form action="/sign_in">
-        <div class="container">
-            <fieldset>
-                <div class="form-group row">
-                    <div class="col-sm-3">
-                        <label for="txtUsername" class="col-form-label">
-                            <span>Username:</span>
-                        </label>
+<div class="container">
+    <div class="col-sm-6">
+        <h1>Sign In</h1>
+        <form action="/sign_in" method="post">
+            <div class="container">
+                <fieldset>
+                    <div class="form-group row">
+                        <div class="col-sm-3">
+                            <label for="txtUsername" class="col-form-label">
+                                <span>Username:</span>
+                            </label>
+                        </div>
+                        <div class="col-sm-6">
+                            <input type="text" id="txtUsername" name="username" class="form-control" placeholder="Username" required>
+                        </div>
                     </div>
-                    <div class="col-sm-6">
-                        <input type="text" id="txtUsername" name="username" class="form-control" placeholder="Username" required>
+                    
+                    <div class="form-group row">
+                        <div class="col-sm-3">
+                            <label for="txtPassword" class="col-form-label">
+                                <span>Password:</span>
+                            </label>
+                        </div>
+                        <div class="col-sm-6">
+                            <input type="text" id="txtPassword" name="password" class="form-control" placeholder="Password" required>
+                        </div>
                     </div>
-                </div>
-                
-                <div class="form-group row">
-                    <div class="col-sm-3">
-                        <label for="txtPassword" class="col-form-label">
-                            <span>Password:</span>
-                        </label>
+                    
+                    <div>
+                        <input type="submit" class="button" value="Sign In"></input>
+                        <a href="/signup" class="text-primary">Create Account</a>
                     </div>
-                    <div class="col-sm-6">
-                        <input type="text" id="txtPassword" name="password" class="form-control" placeholder="Password" required>
-                    </div>
-                </div>
-                
-                <div>
-                    <button type="submit" class="btn btn-primary">Sign in</button>
-                    <a href="#" class="text-primary">Create Account</a>
-                </div>
-            </fieldset>
-        </div>
-    </form>
-</section>
+                </fieldset>
+            </div>
+        </form>
+    </div>
+</div>
