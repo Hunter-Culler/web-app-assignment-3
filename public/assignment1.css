@@ -74,6 +74,13 @@
 	font-size: 1.2em
 }
 
+.feed .post .header .avatar {
+	vertical-align: middle;
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+}
+
 .feed .post.content {
 	border:none;
 	margin-left: 5px;

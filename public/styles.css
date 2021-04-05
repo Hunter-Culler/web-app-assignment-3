@@ -12,3 +12,7 @@
 .hasError {
     color: red;
 }
+
+.exists {
+	color: red;
+}

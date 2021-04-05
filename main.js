@@ -1,5 +1,6 @@
 const express = require("express"), app = express(),
 usersController = require("./controllers/usersController"),
+homeController = require("./controllers/homeController"),
 layouts = require("express-ejs-layouts"),
 mongoose = require("mongoose");
 
@@ -25,8 +26,10 @@ app.use(
 
 app.use(express.json());
 
-
+app.get("/home", homeController.showHome);
+app.get("/signup", usersController.getSignUpPage);
 app.post("/sign_in", usersController.signIn);
+app.post("/sign_up", usersController.signUp);
 
 app.listen(app.get("port"), () => {
     console.log(`Server is running on port: ${app.get("port")}`)
