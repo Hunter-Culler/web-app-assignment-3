@@ -1,6 +1,18 @@
+/*
+	Hunter Culler and Ian Anderson
+	University of Colorado Denver CSCI 4800 E01
+	Web Application Developement
+	Group Assignment 3
+
+	March 31st, 2021
+
+	Status = Functional
+*/
+
 const express = require("express"), app = express(),
 usersController = require("./controllers/usersController"),
 homeController = require("./controllers/homeController"),
+errorController = require("./controllers/errorController"),
 layouts = require("express-ejs-layouts"),
 mongoose = require("mongoose");
 
@@ -28,8 +40,12 @@ app.use(express.json());
 
 app.get("/home", homeController.showHome);
 app.get("/signup", usersController.getSignUpPage);
+app.get("/users", usersController.getAllUsers);
 app.post("/sign_in", usersController.signIn);
-app.post("/sign_up", usersController.signUp);
+app.post("/signUp", usersController.signUp);
+
+//app.use(errorController.pageNotFoundError);
+//app.use(errorController.internalServerError);
 
 app.listen(app.get("port"), () => {
     console.log(`Server is running on port: ${app.get("port")}`)

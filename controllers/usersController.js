@@ -1,3 +1,15 @@
+/*
+	Hunter Culler and Ian Anderson
+	University of Colorado Denver CSCI 4800 E01
+	Web Application Developement
+	Group Assignment 3
+
+	March 31st, 2021
+
+	Status = functional
+
+*/
+
 const User = require("../models/user");
 
 exports.getLogInPage = (req, res) => {
@@ -29,13 +41,29 @@ exports.signIn = (req, res) => {
 
 }
 
+exports.getAllUsers = (req,res) => {
+    user.find([])
+    .exec()
+    .then(users => {
+        res.render("users", {users: users})
+    })
+    .catch((error) => {
+        console.log(error);
+        return [];
+    })
+    .then(() => {
+        console.log("promise complete");
+    })
+}
+
 exports.signUp = (req, res) => {
     let user = new User({
         username: req.body.txtUsername,
         password: req.body.txtPassword,
         fname: req.body.txtFirstname,
         lname: req.body.txtLastname,
-        dob: IDBOpenDBRequest.body.txtDOB,
+        //dob: IDBOpenDBRequest.body.txtDOB,
+        dob: req.body.txtDOB,
         gender: req.body.gender,
         telephone: req.body.txtTel,
         email: req.body.txtEmail,
@@ -43,7 +71,13 @@ exports.signUp = (req, res) => {
         sec_question: req.body.dlSecurity,
         sec_answer: req.body.txtSecurity
     });
+    user.save()
+    .then(() => {
+        res.render("thanks")
+    })
+    .catch(error => { res.send(error)});
 
+    /*
     var myQuery = User.findOne({
         email: user.email
     })
@@ -59,4 +93,5 @@ exports.signUp = (req, res) => {
         email.classList.remove("exists");
         console.log("Successfully created account");
     }
+    */
 }
