@@ -9,6 +9,7 @@
 	Status = Functional
 -->
 
+<!-- main container for signup content -->
 <div class="container">
     <div class="col-sm-6">
         <img src="images/sign-up.png" alt="">
@@ -19,6 +20,7 @@
     </div>
     <div>
         <article>
+            <!-- When submitted, checks the form to make sure each field is compliant with our created protocol -->
             <form onsubmit="return validateForm()" action="/signUp" method="post" id="mainForm" novalidate>
                 <fieldset class="border">
                     <div class="form-group row">
@@ -45,7 +47,6 @@
                         </div>
                     </div>
 
-
                     <div class="row form-group">
                         <label for="txtDOB" class="col-sm-2 col-form-label">
                             Date of Birth: *
@@ -55,8 +56,6 @@
                             <div id="divDoBError" class="col-sm-5 invisible errorMessage"></div>
                         </div>
                     </div>
-
-
 
                     <fieldSet class="border-form-group">
                         <div class="row">
@@ -147,7 +146,6 @@
                         </div>
                     </div>
 
-                    <!--  FIXME: add gunctionality to make sure both passwords match before submission-->
                     <div class="form-group row">
                         <div class="col-sm-2">
                             <label for="txtConfirmPassword" class="col-form-label">
@@ -162,6 +160,7 @@
 
                     <div class="form-group-row">
                         <label for="dlSecurity">Security Question:</label>
+                        <!-- Dropdown menu for picking a security question, reveals the text entry field for answer when a question is picked -->
                         <select id="dlSecurity" name="dlSecurity" onchange="updateSecurityView()">
                             <option value="starter" selected>--Select a security question--
                             </option>

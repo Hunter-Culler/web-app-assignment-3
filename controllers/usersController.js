@@ -20,25 +20,30 @@ exports.getSignUpPage = (req, res) => {
     res.render("signup");
 }
 
+// Function for signing into the site
 exports.signIn = (req, res) => {
     
+    // Make user object with the entered parameters
     let user = new User({
         username: req.body.username,
         password: req.body.password
     });
 
+    // Search database for user with entered username and check if the entered password matches what is on file
     var myQuery = User.findOne({
         username: user.username
     })
     .where("password", user.password);
 
-    if(data) {
-        console.log("Successfully signed in!");
-    }
-    else {
-        res.render("login");
-    }
-
+    // Check if a user was found, if not then returns to login screen
+    myQuery.exec((error, data) => {
+        if(data) {
+            console.log("Successfully signed in!");
+        }
+        else {
+            res.render("login");
+        }
+    });
 }
 
 exports.getAllUsers = (req,res) => {
@@ -56,7 +61,9 @@ exports.getAllUsers = (req,res) => {
     })
 }
 
+// Function for signing up
 exports.signUp = (req, res) => {
+    // Make user object with entered parameters
     let user = new User({
         username: req.body.txtUsername,
         password: req.body.txtPassword,
@@ -71,27 +78,32 @@ exports.signUp = (req, res) => {
         sec_question: req.body.dlSecurity,
         sec_answer: req.body.txtSecurity
     });
+
+    // Save user to database
     user.save()
     .then(() => {
         res.render("thanks")
     })
     .catch(error => { res.send(error)});
 
+    //Below code is for checking if a user already exists with the entered email address, and if so stops the account from being made
     /*
     var myQuery = User.findOne({
         email: user.email
     })
     .where("email", user.email);
 
-    if(data) {
-        var email = document.getElementById("txtEmail");
-        email.classList.add("exists");
-        res.render("signup");
-    }
-    else {
-        var email = document.getElementById("txtEmail");
-        email.classList.remove("exists");
-        console.log("Successfully created account");
-    }
+    myQuery.exec((error, data) => {
+        if(data) {
+            var email = document.getElementById("txtEmail");
+            email.classList.add("exists");
+            res.render("signup");
+        }
+        else {
+            var email = document.getElementById("txtEmail");
+            email.classList.remove("exists");
+            console.log("Successfully created account");
+        }
+    });
     */
 }
