@@ -9,7 +9,8 @@
 	Status = Functional
 */
 
-const express = require("express"), app = express(),
+const express = require("express"),
+app = express(),
 usersController = require("./controllers/usersController"),
 homeController = require("./controllers/homeController"),
 errorController = require("./controllers/errorController"),
@@ -21,7 +22,7 @@ mongoose.Promise = global.Promise;
 mongoose.connect("mongodb://localhost:27017/social_media_website", 
     {useNewUrlParser: true});
 
-app.set("port", process.env.PORT || 3000);
+app.set("port", process.env.PORT || 8080);
 
 app.set("view engine", "ejs");
 app.use(layouts);
